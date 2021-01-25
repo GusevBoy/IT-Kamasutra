@@ -1,0 +1,26 @@
+.navigation {
+    display: flex;
+    flex-direction: column;
+    grid-area: navigation;
+    padding: 10px 15px;
+    background-color:  #8942D6;
+  }
+
+  .item {
+    margin: 0 0 8px;
+  }
+
+  .item a {
+    color: #1c1c1e;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  .item a.active {
+    color: #62dafb;
+  }
+  
+  .item_last {
+    margin: 25px 0 0;
+  }
