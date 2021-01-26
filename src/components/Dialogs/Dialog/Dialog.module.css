@@ -1,0 +1,13 @@
+.collocutors {
+  border-right: 2px solid #62dafb;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  color: #1c1c1c;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0 0 8px;
+  text-transform: capitalize;
+}

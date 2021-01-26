@@ -1,8 +1,9 @@
 import { dialogs } from './Dialogs.module.css'
-const Dialogs = () => {
+import Collocutors from './Collocutors/Collocutors'
+const Dialogs = ({ users }) => {
     return (
         <div className={dialogs}>
-          666
+          <Collocutors users={users} />
         </div>
     );
   }

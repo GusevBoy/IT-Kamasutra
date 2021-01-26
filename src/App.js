@@ -6,13 +6,13 @@ import Content from './components/Content/Content';
 import { BrowserRouter } from 'react-router-dom';
 
 
-const App = () => {
+const App = ({ appState }) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navigation />
-        <Content />
+        <Content state={appState} />
       </div>
     </BrowserRouter>
   );
