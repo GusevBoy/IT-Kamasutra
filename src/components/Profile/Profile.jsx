@@ -1,9 +1,15 @@
-import { profile, post } from './Profile.module.css'
+import { profile } from './Profile.module.css'
 import MyPosts from '../MyPosts/MyPosts'
-const Profile = ({ posts }) => {
+const Profile = ({ myPosts, addPost, addFieldPost }) => {
     return (
         <div className={profile}>
-            <MyPosts posts={posts.map(item => item.title)}/>
+            <MyPosts
+                posts={myPosts.posts}
+                addPost={addPost}
+                newPostTitle={myPosts.newPostTitle}
+                newPostDescription={myPosts.newPostDescription}
+                addFieldPost={addFieldPost}
+            />
          </div>
     );
   }

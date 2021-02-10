@@ -1,3 +1,5 @@
+import renderTree from '../render.js'
+
 const state = {
     users: [
         {
@@ -31,23 +33,27 @@ const state = {
             id: '6',
         },
     ],
-    posts: [
-        {
-            title: 'How to catch Naruto?', 
-        },
-        {
-            title: 'Orochimaru snakes', 
-        },
-        {
-            title: "Hidan's immortality", 
-        },
-        {
-            title: 'Destruction of Konoha', 
-        },
-        {
-            title: 'Captured jinchūriki', 
-        }
-    ],
+    myPosts: {
+        posts: [
+            {
+                title: 'How to catch Naruto?', 
+            },
+            {
+                title: 'Orochimaru snakes', 
+            },
+            {
+                title: "Hidan's immortality", 
+            },
+            {
+                title: 'Destruction of Konoha', 
+            },
+            {
+                title: 'Captured jinchūriki', 
+            }
+        ],
+        newPostTitle: '',
+        newPostDescription: '',
+    },
     dialogs: {
         1: [
             {
@@ -72,6 +78,20 @@ const state = {
             },
         ]
     },
+}
+
+export const addPost = (values) => {
+    state.myPosts.posts.push({
+        id: state.myPosts.posts.length + 1,
+        ...(state.myPosts.newPostTitle && {title: state.myPosts.newPostTitle}),
+        ...(state.myPosts.newPostDescription && {description: state.myPosts.newPostDescription}),
+    })
+    renderTree(state)
+
+}
+export const addFieldPost = (value, field) => {
+    state.myPosts[field] = value;
+    renderTree(state)
 }
 
 export default state

@@ -3,8 +3,42 @@
     background-color:  #5A0DAC;
     height: 100px;
   }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    min-height: 420px;
+  }
   
   .image {
     width: 100px;
     height: 100px;
+  }
+
+  .modalOpen {
+    display: block;
+  }
+
+  .modalClose {
+    display: none;
+  }
+
+  .modalWrapper {
+    margin: 0 0 0 40px;
+  }
+
+
+  .wrapperPosts {
+    border-right: 2px solid #380470;
+    padding: 0 30px 0 0;
+  }
+
+  .buttons {
+    display: flex;
+  }
+
+  .buttonRight {
+    margin: 0 0 0 10px;
   }

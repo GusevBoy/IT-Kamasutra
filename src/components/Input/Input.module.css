@@ -1,0 +1,27 @@
+.input {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border: 2px solid #380470;
+    padding: 10px 7px;
+    color: #1c1c1c;
+    font-weight: bold;
+    background-color: #9E69D6;
+    
+  }
+
+
+  .input:hover {
+    cursor: pointer;
+  }
+
+  .input:active {
+    outline: none;
+  }
+  
+  .input:focus {
+    outline: none;
+}
