@@ -1,6 +1,6 @@
-import renderTree from '../render.js'
+let renderTree
 
-const state = {
+let state = {
     users: [
         {
             img: 'https://sketchok.com/images/articles/06-anime/023-naruto/17/11.jpg',
@@ -80,12 +80,14 @@ const state = {
     },
 }
 
-export const addPost = (values) => {
+export const addPost = () => {
     state.myPosts.posts.push({
         id: state.myPosts.posts.length + 1,
         ...(state.myPosts.newPostTitle && {title: state.myPosts.newPostTitle}),
         ...(state.myPosts.newPostDescription && {description: state.myPosts.newPostDescription}),
     })
+    state.myPosts.newPostTitle = '';
+    state.myPosts.newPostDescription = '';
     renderTree(state)
 
 }
@@ -94,4 +96,7 @@ export const addFieldPost = (value, field) => {
     renderTree(state)
 }
 
+export const subscribe = (observer) => {
+    renderTree = observer
+}
 export default state

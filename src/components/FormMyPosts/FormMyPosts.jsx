@@ -6,7 +6,7 @@ import Text from '../Text/Text'
 import { useState } from 'react'
 import TextArea from '../TextArea/TextArea'
 
-const FormMyPosts = ({ children }) => {
+const FormMyPosts = () => {
     const [values, setValues] = useState({title: '', description: '' })
     return (
         <div className={ formPost }>
