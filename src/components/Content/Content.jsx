@@ -3,10 +3,10 @@ import Dialogs from '../Dialogs/Dialogs'
 import { content } from './Content.module.css'
 import { Route } from 'react-router-dom';
 
-const Content = ({ state, addPost, addFieldPost }) => {
+const Content = ({ state, dispatch }) => {
     return (
         <div className={content}>
-          <Route path="/profile" render={() => <Profile myPosts={state.myPosts} addPost={addPost} addFieldPost={addFieldPost} />} />
+          <Route path="/profile" render={() => <Profile myPosts={state.myPosts} dispatch={dispatch} />} />
           <Route path="/messages" render={() => <Dialogs users={state.users} />} />
         </div>
     );

@@ -6,7 +6,7 @@ import Input from '../Input/Input'
 import TextArea from '../TextArea/TextArea'
 import Text from '../Text/Text'
 import { useState } from 'react';
-const MyPosts = ({ posts, addPost, addFieldPost, newPostTitle, newPostDescription }) => {
+const MyPosts = ({ posts, newPostTitle, newPostDescription, dispatch }) => {
     const [openForm, setOpenForm] = useState(false)
     return (
         <div className={wrapper}>
@@ -18,7 +18,7 @@ const MyPosts = ({ posts, addPost, addFieldPost, newPostTitle, newPostDescriptio
                         </Button>
                         <div className={buttonRight}>
                             <Button onClick={() => {
-                                    addPost()
+                                    dispatch({type: 'ADD-POST'})
                                     setOpenForm(!openForm)
                                 }}
                             >
@@ -39,13 +39,13 @@ const MyPosts = ({ posts, addPost, addFieldPost, newPostTitle, newPostDescriptio
                         <Text>
                             Title
                         </Text>
-                        <Input value={newPostTitle} onChange={item => addFieldPost(item, 'newPostTitle')}/>
+                        <Input value={newPostTitle} onChange={item => dispatch({type: 'ADD-FIELD-POST', field: 'newPostTitle', newText: item})}/>
                     </Label>
                     <Label>
                         <Text>
                             Description
                         </Text>
-                        <TextArea value={newPostDescription} onChange={item => addFieldPost(item, 'newPostDescription')}/>
+                        <TextArea value={newPostDescription} onChange={item => dispatch({type: 'ADD-FIELD-POST', field: 'newPostDescription', newText: item})}/>
                     </Label>
                 </div>
             </div>

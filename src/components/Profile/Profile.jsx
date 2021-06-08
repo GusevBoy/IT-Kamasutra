@@ -1,14 +1,13 @@
 import { profile } from './Profile.module.css'
 import MyPosts from '../MyPosts/MyPosts'
-const Profile = ({ myPosts, addPost, addFieldPost }) => {
+const Profile = ({ myPosts, dispatch }) => {
     return (
         <div className={profile}>
             <MyPosts
                 posts={myPosts.posts}
-                addPost={addPost}
                 newPostTitle={myPosts.newPostTitle}
                 newPostDescription={myPosts.newPostDescription}
-                addFieldPost={addFieldPost}
+                dispatch={dispatch}
             />
          </div>
     );

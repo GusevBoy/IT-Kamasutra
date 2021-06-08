@@ -6,13 +6,13 @@ import Content from './components/Content/Content';
 import { BrowserRouter } from 'react-router-dom';
 
 
-const App = ({ appState, addPost, addFieldPost }) => {
+const App = ({ state, dispatch }) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
         <Navigation />
-        <Content state={appState} addPost={addPost} addFieldPost={addFieldPost} />
+        <Content state={state} dispatch={dispatch} />
       </div>
     </BrowserRouter>
   );
