@@ -1,3 +1,6 @@
+const ADD_TYPE = 'ADD-POST'
+const ADD_FIELD_POST = 'ADD-FIELD-POST'
+
 const store = {
     _state: {
         users: [
@@ -89,20 +92,24 @@ const store = {
     },
     dispatch (action) {
         if(action.type === 'ADD-POST') {
-            debugger;
-            this._state.myPosts.posts.push({
-                id: this._state.myPosts.posts.length + 1,
-                ...(this._state.myPosts.newPostTitle && {title: this._state.myPosts.newPostTitle}),
-                ...(this._state.myPosts.newPostDescription && {description: this._state.myPosts.newPostDescription}),
-            })
-            this._state.myPosts.newPostTitle = '';
-            this._state.myPosts.newPostDescription = '';
-            this._callSubscriber(this._state)
+            if(this._state.myPosts.newPostTitle || this._state.myPosts.newPostDescription) {
+                this._state.myPosts.posts.push({
+                    id: this._state.myPosts.posts.length + 1,
+                    title: this._state.myPosts.newPostTitle,
+                    description: this._state.myPosts.newPostDescription,
+                })
+                this._state.myPosts.newPostTitle = '';
+                this._state.myPosts.newPostDescription = '';
+                this._callSubscriber(this._state)
+            }
         } else if (action.type === 'ADD-FIELD-POST') {
             this._state.myPosts[action.field] = action.newText;
             this._callSubscriber(this._state)
         }
     }
 }
+
+export const addPostActionCreator = () => ({type: ADD_TYPE})
+export const addFieldPostActionCreator = (field, text) => ({type: ADD_FIELD_POST, field, newText: text})
 
 export default store
