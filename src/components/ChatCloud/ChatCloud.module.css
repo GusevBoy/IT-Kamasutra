@@ -1,0 +1,11 @@
+.wrapper {
+    width: fit-content;
+    max-width: 150px;
+    background-color: #62dafb;
+    border-radius: 4%;
+    padding: 11px;
+    font-size: 15px;
+}
+.activeWrapper {
+    background-color: #62dafb;
+}
