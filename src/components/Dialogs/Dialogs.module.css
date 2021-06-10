@@ -1,5 +1,50 @@
-.dialogs {
+  .dialogsWrap {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 1fr;
+    gap: 0px 0px;
+    min-height: 420px;
+  }
+
+  .wrapperCollocutors {
+    border-right: 2px solid #380470;
+    padding: 0 30px 0 0;
+  }
+  
+  .modalInner {
+    display: grid;
+    height: fit-content;
+    gap: 10px;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    width: 60%;
+    margin: 0 0 0 40px;
+  }   
+
+  .modalOpen {
+    display: grid;
+  }
+
+  .modalClose {
+    display: none;
+  }
+
+  .sendField {
+    display: flex;
+    margin: 20px 0 0 40px;
+  }
+
+  .sendField textarea {
+    min-height: auto;
+    height: fit-content;
+    box-sizing: border-box;
+    margin-right: 40px;
+    font-size: 16px;
+    padding: 10px 20px;
+    height: 80px;
+    resize: vertical;
+  }
+
+  .sendField button {
+    height: 40px;
   }

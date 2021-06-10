@@ -1,6 +1,4 @@
-.collocutors {
-  border-right: 2px solid #62dafb;
-}
+.collocutors {}
 
 .item {
   display: flex;
@@ -16,7 +14,7 @@
   text-decoration: none;
 }
 
-.item a.active {
+.item .activeLink {
   color: #62dafb;
 }
 

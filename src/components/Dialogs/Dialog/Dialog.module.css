@@ -10,4 +10,5 @@
   font-weight: bold;
   margin: 0 0 8px;
   text-transform: capitalize;
+  border: 1px solid red;
 }

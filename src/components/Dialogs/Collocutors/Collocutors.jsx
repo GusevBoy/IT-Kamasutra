@@ -1,16 +1,17 @@
-import { collocutors, item, icon, active, iconActive } from './Collocutors.module.css'
-import { useState } from 'react';
+import { collocutors, item, icon, activeLink, iconActive } from './Collocutors.module.css'
 import { NavLink } from 'react-router-dom';
-const Collocutors = ({ users }) => {
-  const [activeId, setActiveId] = useState()
+const Collocutors = ({ dialogs, users, onClickLink, activeId }) => {
     return (
         <div className={collocutors}>
-          {users.map(user => (
-            <div className={item} key={`${user.id}${user.login}`}>
-              <img width="35px" height="35px" className={`${icon} ${activeId === user.id && iconActive}`} src={user.img} alt={user.login} />
-              <NavLink onClick={() => setActiveId(user.id)}to={`/messages/${user.id}`} activeClassName={active}>{user.login}</NavLink>
-          </div>
-          ))}
+          {dialogs.map(dialog => { 
+            const user = users.find(({id}) => dialog.idSender === id)
+            return (
+              <div className={item} key={dialog.id}>
+                <img width="35px" height="35psx" className={`${icon} ${activeId === user.id && iconActive}`} src={user.img} alt={user.login} />
+                <NavLink onClick={() => onClickLink(dialog)}to={`/messages/${user.id}`} className={activeId === user.id && activeLink}>{user.login}</NavLink>
+              </div>
+            )
+          })}
         </div>
     );
   }

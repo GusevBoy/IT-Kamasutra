@@ -7,7 +7,7 @@ const Content = ({ state, dispatch }) => {
     return (
         <div className={content}>
           <Route path="/profile" render={() => <Profile myPosts={state.myPosts} dispatch={dispatch} />} />
-          <Route path="/messages" render={() => <Dialogs users={state.users} />} />
+          <Route path="/messages" render={() => <Dialogs dispatch={dispatch} dialogs={state.myDialogs.dialogs} users={state.users} newSendMessage={state.myDialogs.newSendMessage} />} />
         </div>
     );
   }
