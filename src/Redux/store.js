@@ -1,8 +1,5 @@
-const ADD_POST = 'ADD-POST'
-const ADD_FIELD_POST = 'ADD-FIELD-POST'
-const ADD_MESSAGE = 'ADD-MESSAGE'
-const ADD_SEND_MESSAGE = 'ADD-FIELD-MESSAGE'
-
+import postsReducer from './posts-reducer'
+import dialogsReducer from './dialogs-reducer'
 const store = {
     _state: {
         userId: '6dd-3-d-3',
@@ -114,40 +111,10 @@ const store = {
         return this._state
     },
     dispatch (action) {
-        if(action.type === ADD_POST) {
-            if(this._state.myPosts.newPostTitle || this._state.myPosts.newPostDescription) {
-                this._state.myPosts.posts.push({
-                    id: this._state.myPosts.posts.length + 1,
-                    title: this._state.myPosts.newPostTitle,
-                    description: this._state.myPosts.newPostDescription,
-                })
-                this._state.myPosts.newPostTitle = '';
-                this._state.myPosts.newPostDescription = '';
-                this._callSubscriber(this._state)
-            }
-        } else if (action.type === ADD_FIELD_POST) {
-            this._state.myPosts[action.field] = action.text;
-            this._callSubscriber(this._state)
-        } else if (action.type === ADD_MESSAGE) {
-            const dialogIndex = this._state.myDialogs.dialogs.findIndex(({idSender}) => idSender === action.idSender)
-            this._state.myDialogs.dialogs[dialogIndex].messages.push({
-                time: new Date(),
-                message: this._state.myDialogs.newSendMessage,
-                myMessage: true,
-            })
-            this._state.myDialogs.newSendMessage = '';
-            this._callSubscriber(this._state)
-        } else if (action.type === ADD_SEND_MESSAGE) {
-            this._state.myDialogs[action.field] = action.text;
-            this._callSubscriber(this._state)
-        }
+        this._state.myPosts = postsReducer(this._state.myPosts, action)
+        this._state.myDialogs = dialogsReducer(this._state.myDialogs, action)
+        this._callSubscriber(this._state)
     }
 }
-
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const addFieldPostActionCreator = (field, text) => ({type: ADD_FIELD_POST, field, text})
-
-export const addMessageActionCreator = (idSender) => ({type: ADD_MESSAGE, idSender})
-export const addFieldMessageActionCreator = (text) => ({type: ADD_SEND_MESSAGE, field: 'newSendMessage', text})
 
 export default store

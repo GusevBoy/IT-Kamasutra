@@ -4,7 +4,7 @@ import Collocutors from './Collocutors/Collocutors'
 import ChatCloud from '../ChatCloud/ChatCloud'
 import TextArea from '../TextArea/TextArea'
 import Button from '../Button/Button'
-import {addMessageActionCreator, addFieldMessageActionCreator} from '../../Redux/store'
+import {addMessageActionCreator, addFieldMessageActionCreator} from '../../Redux/dialogs-reducer'
 const Dialogs = ({ dispatch, dialogs, users, newSendMessage }) => {
     const [activeId, setActiveId] = useState(null)
     const [dialog, setDialog] = useState(null)

@@ -6,7 +6,7 @@ import Input from '../Input/Input'
 import TextArea from '../TextArea/TextArea'
 import Text from '../Text/Text'
 import { useState } from 'react';
-import { addPostActionCreator, addFieldPostActionCreator } from '../../Redux/store';
+import { addPostActionCreator, addFieldPostActionCreator } from '../../Redux/posts-reducer';
 
 const MyPosts = ({ posts, newPostTitle, newPostDescription, dispatch }) => {
     const [openForm, setOpenForm] = useState(false)
