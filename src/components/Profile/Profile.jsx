@@ -1,14 +1,9 @@
 import { profile } from './Profile.module.css'
-import MyPosts from '../MyPosts/MyPosts'
-const Profile = ({ myPosts, dispatch }) => {
+import MyPostsConteiner from '../MyPosts/MyPostsConteiner'
+const Profile = () => {
     return (
         <div className={profile}>
-            <MyPosts
-                posts={myPosts.posts}
-                newPostTitle={myPosts.newPostTitle}
-                newPostDescription={myPosts.newPostDescription}
-                dispatch={dispatch}
-            />
+            <MyPostsConteiner />
          </div>
     );
   }

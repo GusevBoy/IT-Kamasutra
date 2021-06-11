@@ -4,14 +4,10 @@ import Collocutors from './Collocutors/Collocutors'
 import ChatCloud from '../ChatCloud/ChatCloud'
 import TextArea from '../TextArea/TextArea'
 import Button from '../Button/Button'
-import {addMessageActionCreator, addFieldMessageActionCreator} from '../../Redux/dialogs-reducer'
-const Dialogs = ({ dispatch, dialogs, users, newSendMessage }) => {
+const Dialogs = ({ dialogs, users, newSendMessage, addMessage, updateNewMessage }) => {
     const [activeId, setActiveId] = useState(null)
     const [dialog, setDialog] = useState(null)
-    console.log('dialog', dialog)
-    console.log('newSendMessage', newSendMessage)
     const onClickDialog = ({idSender, messages}) => {
-      // console.log('user22', user)
       setActiveId(idSender)
       setDialog(messages)
     }
@@ -41,8 +37,8 @@ const Dialogs = ({ dispatch, dialogs, users, newSendMessage }) => {
                   })}
             </div>
             <div className={sendField}>
-              <TextArea value={newSendMessage}  onChange={(item) => dispatch(addFieldMessageActionCreator(item))} />
-              <Button onClick={() => dispatch(addMessageActionCreator(activeId))}>
+              <TextArea value={newSendMessage}  onChange={item => updateNewMessage(item)} />
+              <Button onClick={() => addMessage(activeId)}>
                 Send
               </Button>
             </div>

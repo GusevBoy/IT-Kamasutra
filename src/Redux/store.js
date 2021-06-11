@@ -102,7 +102,7 @@ const store = {
 
     },
     _callSubscriber () {
-        console.log('state changed')
+        console.error('state changed')
     },
     subscribe (observer) {
         this._callSubscriber = observer

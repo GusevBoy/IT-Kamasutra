@@ -1,13 +1,13 @@
 import Profile from '../Profile/Profile'
-import Dialogs from '../Dialogs/Dialogs'
+import DialogsConteiner from '../Dialogs/DialogsConteiner'
 import { content } from './Content.module.css'
 import { Route } from 'react-router-dom';
 
-const Content = ({ state, dispatch }) => {
+const Content = () => {
     return (
         <div className={content}>
-          <Route path="/profile" render={() => <Profile myPosts={state.myPosts} dispatch={dispatch} />} />
-          <Route path="/messages" render={() => <Dialogs dispatch={dispatch} dialogs={state.myDialogs.dialogs} users={state.users} newSendMessage={state.myDialogs.newSendMessage} />} />
+          <Route path="/profile" render={() => <Profile />} />
+          <Route path="/messages" render={() => <DialogsConteiner  />} />
         </div>
     );
   }

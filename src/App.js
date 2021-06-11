@@ -12,7 +12,7 @@ const App = ({ state, dispatch }) => {
       <div className="app-wrapper">
         <Header />
         <Navigation />
-        <Content state={state} dispatch={dispatch} />
+        <Content />
       </div>
     </BrowserRouter>
   );

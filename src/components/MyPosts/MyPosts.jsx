@@ -6,9 +6,8 @@ import Input from '../Input/Input'
 import TextArea from '../TextArea/TextArea'
 import Text from '../Text/Text'
 import { useState } from 'react';
-import { addPostActionCreator, addFieldPostActionCreator } from '../../Redux/posts-reducer';
 
-const MyPosts = ({ posts, newPostTitle, newPostDescription, dispatch }) => {
+const MyPosts = ({ posts, newPostTitle, newPostDescription, updateNewPostText, addPost }) => {
     const [openForm, setOpenForm] = useState(false)
     return (
         <div className={wrapper}>
@@ -20,7 +19,7 @@ const MyPosts = ({ posts, newPostTitle, newPostDescription, dispatch }) => {
                         </Button>
                         <div className={buttonRight}>
                             <Button onClick={() => {
-                                    dispatch(addPostActionCreator())
+                                    addPost()
                                     setOpenForm(!openForm)
                                 }}
                             >
@@ -41,13 +40,13 @@ const MyPosts = ({ posts, newPostTitle, newPostDescription, dispatch }) => {
                         <Text>
                             Title
                         </Text>
-                        <Input value={newPostTitle} onChange={item => dispatch(addFieldPostActionCreator('newPostTitle', item))}/>
+                        <Input value={newPostTitle} onChange={item => updateNewPostText(item, 'newPostTitle')}/>
                     </Label>
                     <Label>
                         <Text>
                             Description
                         </Text>
-                        <TextArea value={newPostDescription} onChange={item => dispatch(addFieldPostActionCreator('newPostDescription', item))} />
+                        <TextArea value={newPostDescription} onChange={item => updateNewPostText(item, 'newPostDescription')} />
                     </Label>
                 </div>
             </div>
