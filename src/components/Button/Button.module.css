@@ -29,3 +29,25 @@
   .button:focus {
     outline: none;
 }
+
+.buttonText {
+  display: block;
+  width: auto;
+  height: fit-content;
+  border: none;
+  outline: none;
+  padding: 0;
+  background-color: transparent;
+  font-size: 16px;
+  color: #1c1c1c;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.buttonText:hover {
+    
+}
+
+.buttonText:active {
+  color: #62dafb;
+}

@@ -26,24 +26,28 @@ let initialState = {
 const postsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
-            if(state.newPostTitle || state.newPostDescription) {
-                state.posts.push({
+            return {
+                ...state,
+                posts: [...state.posts, {
                     id: state.posts.length + 1,
                     title: state.newPostTitle,
                     description: state.newPostDescription,
-                })
-                state.newPostTitle = '';
-                state.newPostDescription = '';
+                }],
+            
+                newPostTitle: '',
+                newPostDescription: '',
             }
-            return state
         case ADD_FIELD_POST:
-            state[action.field] = action.text;
-            return state;
+            return {
+                ...state,
+                [action.field]: action.text,
+            }
         default: return state;
     }
 }
 
 export const addPostActionCreator = () => ({type: ADD_POST})
-export const addFieldPostActionCreator = (field, text) => ({type: ADD_FIELD_POST, field, text})
+export const addNewTitlePostActionCreator = text => ({type: ADD_FIELD_POST, field: 'newPostTitle', text})
+export const addNewDescriptionPostActionCreator = text => ({type: ADD_FIELD_POST, field: 'newPostDescription', text})
 
 export default postsReducer

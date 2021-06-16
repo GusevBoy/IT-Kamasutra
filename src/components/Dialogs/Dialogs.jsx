@@ -4,6 +4,7 @@ import Collocutors from './Collocutors/Collocutors'
 import ChatCloud from '../ChatCloud/ChatCloud'
 import TextArea from '../TextArea/TextArea'
 import Button from '../Button/Button'
+
 const Dialogs = ({ dialogs, users, newSendMessage, addMessage, updateNewMessage }) => {
     const [activeId, setActiveId] = useState(null)
     const [dialog, setDialog] = useState(null)

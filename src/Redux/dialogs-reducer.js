@@ -48,18 +48,22 @@ const initialState = {
 const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_MESSAGE:
-            const dialogIndex = state.dialogs.findIndex(({idSender}) => idSender === action.idSender)
-            state.dialogs[dialogIndex].messages.push({
-                time: new Date(),
-                message: state.newSendMessage,
-                myMessage: true,
-            })
-            state.newSendMessage = '';
-            return state
+            {
+                let newState = {...state}
+                const dialogIndex = newState.dialogs.findIndex(({idSender}) => idSender === action.idSender)
+                newState.dialogs[dialogIndex].messages.push({
+                    time: new Date(),
+                    message: newState.newSendMessage,
+                    myMessage: true,
+                })
+                newState.newSendMessage = '';
+                return newState
+            }
         case ADD_SEND_MESSAGE:
-            state[action.field] = action.text;
-            return state;
-
+            return {
+                ...state,
+                [action.field]: action.text,
+            }
         default:
             return state;
     }

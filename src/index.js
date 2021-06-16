@@ -5,13 +5,14 @@ import { StrictMode } from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import store from './Redux/redux-store'
-import StoreContext from './StoreContext';
+import { Provider } from 'react-redux';
+
 const renderTree = () => {
     ReactDOM.render(
         <StrictMode>
-          <StoreContext.Provider value={store}>
-              <App />
-          </StoreContext.Provider>
+          <Provider store={store}>
+            <App />
+          </Provider>
         </StrictMode>,
         document.getElementById('root')
       );

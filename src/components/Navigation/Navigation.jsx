@@ -6,12 +6,15 @@ const Navigation = () => {
     return (
         <nav className={navigation}>
             <div className={item}>
-                <NavLink to="/profile" activeClassName={active}>Profile</NavLink>
+                <NavLink to="/posts" activeClassName={active}>Posts</NavLink>
             </div>
             <div className={item}>
                 <NavLink to="/messages" activeClassName={active}>Messages</NavLink>
             </div>
             <div className={item}>
+                <NavLink to="/users" activeClassName={active}>Users</NavLink>
+            </div>
+            {/* <div className={item}>
                 <NavLink to="/music" activeClassName={active}>Music</NavLink>
             </div>
             <div className={item}>
@@ -25,7 +28,7 @@ const Navigation = () => {
             </div>
             <div className={`${item} ${item_last}`}>
                 <NavLink to="/settings" activeClassName={active}>Settings</NavLink>
-            </div>
+            </div> */}
         </nav>
     );
   }

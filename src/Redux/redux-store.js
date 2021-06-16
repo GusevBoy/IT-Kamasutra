@@ -7,7 +7,7 @@ import usersReducer from './users-reducer'
 let reducers = combineReducers({
     myPosts: postsReducer,
     myDialogs: dialogsReducer,
-    users: usersReducer,
+    myUsers: usersReducer,
 })
 
 const store = createStore(reducers)

@@ -1,29 +1,18 @@
-import { addMessageActionCreator, addFieldMessageActionCreator } from '../../Redux/dialogs-reducer';
+import { addNewTitlePostActionCreator, addNewDescriptionPostActionCreator, addPostActionCreator } from '../../Redux/posts-reducer';
 
 import MyPosts from "./MyPosts";
-import StoreContext from '../../StoreContext';
+import { connect } from 'react-redux';
 
-const MyPostsConteiner = () => {
-    return (
-        <StoreContext.Consumer>
-            {
-                (store) => {
-                    const { myPosts: {posts, newPostTitle, newPostDescription} } = store.getState()
-                    const { dispatch } = store
-                    return (
-                        <MyPosts
-                            updateNewPostText={(item, field) => dispatch(addFieldPostActionCreator(field, item))}
-                            addPost={() => dispatch(addPostActionCreator())}
-                            posts={posts}
-                            newPostTitle={newPostTitle}
-                            newPostDescription={newPostDescription}
-                        />
-                    )
-                }
-            }
-        </StoreContext.Consumer>
-
-    )
-}
+const mapStateToProps = (state) => ({
+    posts: state.myPosts.posts,
+    newPostTitle: state.myPosts.newPostTitle,
+    newPostDescription: state.myPosts.newPostDescription,
+  })
+  const mapDispatchToProps = (dispatch) => ({
+    updateNewPostTitle: item => dispatch(addNewTitlePostActionCreator(item)),
+    updateNewPostDescription: item => dispatch(addNewDescriptionPostActionCreator(item)),
+    addPost: () => dispatch(addPostActionCreator())
+  })
+  const MyPostsConteiner = connect(mapStateToProps, mapDispatchToProps) (MyPosts)
 
 export default MyPostsConteiner 

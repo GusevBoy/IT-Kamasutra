@@ -7,7 +7,7 @@ import TextArea from '../TextArea/TextArea'
 import Text from '../Text/Text'
 import { useState } from 'react';
 
-const MyPosts = ({ posts, newPostTitle, newPostDescription, updateNewPostText, addPost }) => {
+const MyPosts = ({ posts, newPostTitle, newPostDescription, updateNewPostTitle, updateNewPostDescription, addPost }) => {
     const [openForm, setOpenForm] = useState(false)
     return (
         <div className={wrapper}>
@@ -40,13 +40,13 @@ const MyPosts = ({ posts, newPostTitle, newPostDescription, updateNewPostText, a
                         <Text>
                             Title
                         </Text>
-                        <Input value={newPostTitle} onChange={item => updateNewPostText(item, 'newPostTitle')}/>
+                        <Input value={newPostTitle} onChange={item => updateNewPostTitle(item)}/>
                     </Label>
                     <Label>
                         <Text>
                             Description
                         </Text>
-                        <TextArea value={newPostDescription} onChange={item => updateNewPostText(item, 'newPostDescription')} />
+                        <TextArea value={newPostDescription} onChange={item => updateNewPostDescription(item)} />
                     </Label>
                 </div>
             </div>

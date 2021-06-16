@@ -9,4 +9,5 @@
   grid-template-rows: auto 1fr;
   grid-template-columns: 2fr 10fr;
   grid-gap: 10px;
+  min-height: 440px;
 }

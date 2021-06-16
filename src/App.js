@@ -1,12 +1,12 @@
 import React from 'react'
 import './App.css';
 import Header from './components/Header/Header';
-import Navigation from './components/Navigation/Navigation2';
+import Navigation from './components/Navigation/Navigation';
 import Content from './components/Content/Content';
 import { BrowserRouter } from 'react-router-dom';
 
 
-const App = ({ state, dispatch }) => {
+const App = () => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
