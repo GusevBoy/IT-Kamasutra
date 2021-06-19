@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 const Collocutors = ({ dialogs, users, onClickLink, activeId }) => {
     return (
         <div className={collocutors}>
-          {dialogs.map(dialog => { 
+          {/* {dialogs.map(dialog => { 
             const user = users.find(({id}) => dialog.idSender === id)
             return (
               <div className={item} key={dialog.id}>
@@ -11,7 +11,7 @@ const Collocutors = ({ dialogs, users, onClickLink, activeId }) => {
                 <NavLink onClick={() => onClickLink(dialog)}to={`/messages/${user.id}`} className={activeId === user.id && activeLink}>{user.login}</NavLink>
               </div>
             )
-          })}
+          })} */}
         </div>
     );
   }
