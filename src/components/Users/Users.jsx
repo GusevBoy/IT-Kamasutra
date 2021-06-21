@@ -2,9 +2,10 @@ import { wrapper, inner, itemWrapper, icon, item, info, name, text, paginationWr
 import ButtonText from '../Button/ButtonText'
 import Pagination from '../Pagination/Pagination'
 import Loader from '../Loader/Loader'
+import { fakeIcon } from '../../img/icons'
+import { NavLink } from 'react-router-dom';
 
 const Users = ({ users, followUser, unfollowUser, totalUsersCount, pageSize, currentPage, onPageChanged, isFetching }) => {
-  const fakeIcon = 'https://www.kindpng.com/picc/m/67-676296_straw-hat-luffy-clipart-one-piece-icon-png.png'
     return(
       <div className={wrapper}>
         <div className={inner}>
@@ -20,7 +21,11 @@ const Users = ({ users, followUser, unfollowUser, totalUsersCount, pageSize, cur
           {isFetching ? <Loader /> : (
               users.map(user => (
                   <div className={itemWrapper}>
-                  <img width="40px" height="40px" className={icon} src={fakeIcon} alt={user.name} />
+                  <div>
+                    <NavLink to={`/profile/${user.id}`}>
+                      <img width="40px" height="40px" className={icon} src={user?.photos?.large || user?.photos?.small || fakeIcon} alt={user.name} />
+                    </NavLink>
+                  </div>
                   <div className={item}>
                       <div className={info}>
                       <span className={`${name} ${text}`}>{user.name}</span>

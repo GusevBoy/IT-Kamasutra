@@ -1,0 +1,13 @@
+.image {
+    margin: 0 0 0 6px;
+    width: 25px;
+    height: 25px;
+}
+
+.imageLast {
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+}
