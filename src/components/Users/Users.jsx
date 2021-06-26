@@ -5,8 +5,9 @@ import Loader from '../Loader/Loader'
 import { fakeIcon } from '../../img/icons'
 import { NavLink } from 'react-router-dom';
 
-const Users = ({ users, followUser, unfollowUser, totalUsersCount, pageSize, currentPage, onPageChanged, isFetching }) => {
-    return(
+const Users = ({ users, onClickFollow, totalUsersCount, pageSize, currentPage, onPageChanged, isFetching, followingProgress }) => {
+  console.log('followingProgress', followingProgress)  
+  return(
       <div className={wrapper}>
         <div className={inner}>
           <div className={paginationWrap}>
@@ -31,7 +32,7 @@ const Users = ({ users, followUser, unfollowUser, totalUsersCount, pageSize, cur
                       <span className={`${name} ${text}`}>{user.name}</span>
                       <span className={text}>{user.status}</span>
                       </div>
-                      <ButtonText onClick={() => user.followed ? unfollowUser(user.id) : followUser(user.id)}>
+                      <ButtonText onClick={() => !followingProgress && onClickFollow(!user.followed, user.id)}>
                           {user.followed ? 'unfollow' : 'follow'}
                       </ButtonText>
                   </div>

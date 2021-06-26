@@ -1,5 +1,4 @@
 import { networksWrap, itemWrapper, item, name, text, icon, info } from './Profile.module.css'
-import MyPostsConteiner from '../MyPosts/MyPostsConteiner'
 import Networks from '../Networks/Networks'
 import ButtonText from '../Button/ButtonText'
 import { fakeIcon } from '../../img/icons'
