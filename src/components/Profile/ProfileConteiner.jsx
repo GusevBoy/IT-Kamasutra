@@ -1,22 +1,18 @@
 import React from 'react'
 import Profile from './Profile'
-import { setProfile } from '../../Redux/profile-reducer'
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router'
-import profileApi from '../../services/profile'
+import getProfile from '../../Redux/thunks/getProfile'
 
 class ProfileC extends React.Component {
 
     componentDidMount() {
-        profileApi.getProfile(this.props.match.params.profileId).then(({data}) => {
-            if(data) {
-                this.props.setProfile(data)
-            }
-        })
+        this.props.getProfile(this.props.match.params.profileId)
     }
+
     render() { 
         const { profile, setProfile } = this.props
-        return <Profile profile={profile} setProfile={setProfile} />;
+        return <Profile profile={profile} />;
     }
 }
  
@@ -24,6 +20,6 @@ const mapStateToProps = (state) => ({
     profile: state.myProfile.profile,
 })
 
-const ProfileConteiner = connect(mapStateToProps, { setProfile }) (withRouter(ProfileC))
+const ProfileConteiner = connect(mapStateToProps, { getProfile }) (withRouter(ProfileC))
 
 export default ProfileConteiner;

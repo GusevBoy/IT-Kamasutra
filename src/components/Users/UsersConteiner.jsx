@@ -1,60 +1,29 @@
 import React from 'react'
-import usersApi from '../../services/users'
 import {
-    followUser,
-    unfollowUser,
-    setUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    toggleFetching,
-    toggleFollowingProgress,
 } from '../../Redux/users-reducer'
+import getUsers from '../../Redux/thunks/getUsers'
+import toggleFollowing from '../../Redux/thunks/toggleFollowing'
 import { connect } from 'react-redux';
 import Users from './Users'
-import followApi from '../../services/follow'
 class UsersC extends React.Component {
   constructor(props) {
       super(props)
       this.onPageChanged = this.onPageChanged.bind(this)
-      this.fetchUsers = this.fetchUsers.bind(this)
       this.onClickFollow = this.onClickFollow.bind(this)
   }
   componentDidMount() {
     const { currentPage, pageSize } = this.props
-    this.props.toggleFetching(true)
-    this.fetchUsers(currentPage, pageSize)
+    this.props.getUsers(currentPage, pageSize)
   }
 
   onPageChanged(pageNumber) {
-      this.props.toggleFetching(true)
       this.props.setCurrentPage(pageNumber)
-      this.fetchUsers(pageNumber, this.props.pageSize)
-  }
-
-  fetchUsers(currentPage, pageSize) {
-    usersApi.getUsers(currentPage, pageSize).then(({ data }) => {
-        if(data.items.length) {
-            this.props.toggleFetching(false)
-            this.props.setUsers(data.items)
-            this.props.setTotalUsersCount(data.totalCount)
-        }
-    })
+      this.props.getUsers(pageNumber, this.props.pageSize)
   }
 
   onClickFollow(follow, userId) {
-    
-    const {toggleFollowingProgress, followUser, unfollowUser} = this.props
-    toggleFollowingProgress(true)
-    if(follow) {
-      followApi.follow(userId).then(() => {
-        followUser(userId)
-      }).finally(() => toggleFollowingProgress(false))
-    } else {
-      followApi.unfollow(userId).then(() => {
-        unfollowUser(userId )
-      }).finally(() => toggleFollowingProgress(false))
-    }
-    
+    this.props.toggleFollowing(follow, userId)
   }
   
   render() {
@@ -82,12 +51,8 @@ class UsersC extends React.Component {
     followingProgress: state.myUsers.followingProgress,
   })
   const UsersConteiner = connect(mapStateToProps, {
-    followUser,
-    unfollowUser,
-    setUsers,
     setCurrentPage,
-    setTotalUsersCount,
-    toggleFetching,
-    toggleFollowingProgress,
+    getUsers,
+    toggleFollowing
   }) (UsersC)
   export default UsersConteiner;

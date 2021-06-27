@@ -1,22 +1,12 @@
 import React from 'react'
-import { setAuthUser } from '../../Redux/auth-reducers'
+import getAuthProfile from '../../Redux/thunks/getAuthProfile'
 import { connect } from 'react-redux';
 import Header from './Header'
-import authApi from '../../services/auth'
-import profileApi from '../../services/profile'
 
 class HeaderC extends React.Component {
   
   componentDidMount() {
-      console.log('authApi', authApi)
-      const getUser = async () => {
-        authApi.getAuthMe().then(({ data: { data: { email, id, login } } } ) => {
-          return profileApi.getProfile(id).then(({data: {photos, contacts}}) => {
-            this.props.setAuthUser(id, login, email, photos, contacts)
-          })
-        })
-      }
-      getUser()
+      this.props.getAuthProfile()
   }
   
   render() {
@@ -37,6 +27,6 @@ class HeaderC extends React.Component {
     isAuth: state.auth.isAuth,
   })
   const HeaderConteiner = connect(mapStateToProps, {
-    setAuthUser,
+    getAuthProfile,
   }) (HeaderC)
   export default HeaderConteiner;
