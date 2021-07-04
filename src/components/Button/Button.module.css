@@ -42,12 +42,15 @@
   color: #1c1c1c;
   font-weight: bold;
   cursor: pointer;
+  transition: text-shadow 380ms;
 }
 
 .buttonText:hover {
-    
+  text-shadow: -2px 0px 19px #5A0DAC;
 }
 
 .buttonText:active {
   color: #62dafb;
+  opacity: 0.5;
+  text-shadow: -2px 0px 19px #5A0DAC;
 }

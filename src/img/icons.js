@@ -1,0 +1,1 @@
+export const fakeIcon = 'https://www.kindpng.com/picc/m/67-676296_straw-hat-luffy-clipart-one-piece-icon-png.png'
