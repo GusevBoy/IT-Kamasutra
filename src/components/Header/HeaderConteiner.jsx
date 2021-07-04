@@ -11,7 +11,6 @@ class HeaderC extends React.Component {
   
   render() {
       const { login, email } = this.props
-      console.log('this.props', this.props)
       return (
           <Header
             login={login}

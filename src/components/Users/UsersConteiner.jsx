@@ -6,6 +6,7 @@ import getUsers from '../../Redux/thunks/getUsers'
 import toggleFollowing from '../../Redux/thunks/toggleFollowing'
 import { connect } from 'react-redux';
 import Users from './Users'
+import withAuthRedirect from '../../hoc/withAuthRedirect';
 class UsersC extends React.Component {
   constructor(props) {
       super(props)
@@ -50,9 +51,9 @@ class UsersC extends React.Component {
     isFetching: state.myUsers.isFetching,
     followingProgress: state.myUsers.followingProgress,
   })
-  const UsersConteiner = connect(mapStateToProps, {
+  const UsersConteiner = withAuthRedirect(connect(mapStateToProps, {
     setCurrentPage,
     getUsers,
     toggleFollowing
-  }) (UsersC)
+  }) (UsersC))
   export default UsersConteiner;

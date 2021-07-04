@@ -13,6 +13,20 @@
     
   }
 
+  .inputSmall {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+    padding: 5px 3px;
+    font-size: 14px;
+    border: 2px solid #62dafb;
+    background-color: transparent;
+    color: #62dafb;
+  }
 
   .input:hover {
     cursor: pointer;
@@ -24,4 +38,12 @@
   
   .input:focus {
     outline: none;
+}
+
+.inputSmall:active {
+  outline: none;
+}
+
+.inputSmall:focus {
+  outline: none;
 }

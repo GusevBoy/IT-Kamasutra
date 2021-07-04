@@ -6,7 +6,6 @@ import { fakeIcon } from '../../img/icons'
 import { NavLink } from 'react-router-dom';
 
 const Users = ({ users, onClickFollow, totalUsersCount, pageSize, currentPage, onPageChanged, isFetching, followingProgress }) => {
-  console.log('followingProgress', followingProgress)  
   return(
       <div className={wrapper}>
         <div className={inner}>
