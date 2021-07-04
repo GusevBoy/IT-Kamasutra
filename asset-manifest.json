@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/IT-Kamasutra/static/css/main.a241d1dc.chunk.css",
-    "main.js": "/IT-Kamasutra/static/js/main.bf376d4c.chunk.js",
-    "main.js.map": "/IT-Kamasutra/static/js/main.bf376d4c.chunk.js.map",
+    "main.js": "/IT-Kamasutra/static/js/main.f0d36580.chunk.js",
+    "main.js.map": "/IT-Kamasutra/static/js/main.f0d36580.chunk.js.map",
     "runtime-main.js": "/IT-Kamasutra/static/js/runtime-main.f7963737.js",
     "runtime-main.js.map": "/IT-Kamasutra/static/js/runtime-main.f7963737.js.map",
     "static/js/2.e7cc3189.chunk.js": "/IT-Kamasutra/static/js/2.e7cc3189.chunk.js",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.f7963737.js",
     "static/js/2.e7cc3189.chunk.js",
     "static/css/main.a241d1dc.chunk.css",
-    "static/js/main.bf376d4c.chunk.js"
+    "static/js/main.f0d36580.chunk.js"
   ]
 }
